@@ -10,6 +10,7 @@ import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity implements ActionBar.TabListener{
@@ -28,11 +29,22 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);//set the view to the main activity
+        TextView previewDescription = (TextView)findViewById(R.id.previewDesc);
 
         //get the pager, action bar and adapters
         mPager = (ViewPager) findViewById(R.id.pager); // pulls from activity_main
         mActionBar = getActionBar();
         mAdapter = new TabPagerAdapter(getSupportFragmentManager());
+        
+       String scanResult = new String(); 
+       Intent scanner = getIntent();
+       try{scanResult = scanner.getStringExtra("result");}
+       catch(Exception e)
+       {
+    	   Toast.makeText(getApplicationContext(), "no result", Toast.LENGTH_LONG).show();
+       }
+       previewDescription.setText(scanResult);
+       
 
         //set the adapter to the pager
         mPager.setAdapter(mAdapter);
@@ -102,11 +114,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         {
             case R.id.action_scan:
                 //Toast.makeText(this, "Scan", Toast.LENGTH_SHORT).show();
-                Intent openMap = new Intent(this, MapView.class);
-                startActivity(openMap);
+               Intent openScan = new Intent(this, ScanActivity.class);
+               startActivity(openScan);
                 break;
             case R.id.action_loc:
-                Toast.makeText(this, "Location", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Location", Toast.LENGTH_SHORT).show();
+            	 Intent openMap = new Intent(this, MapActivity.class);
+                 startActivity(openMap);
                 break;
             case R.id.action_help:
                 Toast.makeText(this, "Help", Toast.LENGTH_SHORT).show();

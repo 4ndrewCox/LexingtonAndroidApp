@@ -1,27 +1,29 @@
 package com.capstone.Lexington;
 
+import java.util.ArrayList;
+
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 
 public class ImageAdapter extends BaseAdapter
 {
     private Context context;
-    private Integer[] imageIDs;
+    private ArrayList<Bitmap> imageIDs;
     
     // constructor
-    public ImageAdapter(Context c, Integer[] array)
+    public ImageAdapter(Context c, ArrayList<Bitmap> scaledImages)
     {
         context = c;
-        imageIDs = array;
+        imageIDs = scaledImages;
     }
     
     public int getCount()
     {
-        return imageIDs.length;
+        return imageIDs.size();
     }
     
     public Object getItem(int position) 
@@ -41,8 +43,6 @@ public class ImageAdapter extends BaseAdapter
 		if (convertView == null) {
 		
 			imageView = new ImageView(context);
-			imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
-			imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
 			imageView.setPadding(5, 5, 5, 5);
 			
 			convertView = imageView;
@@ -52,7 +52,7 @@ public class ImageAdapter extends BaseAdapter
 			imageView = (ImageView) convertView;
 		}
 
-		imageView.setImageResource(imageIDs[position]);
+		imageView.setImageBitmap(imageIDs.get(position));
 		return imageView;
 	}
 }

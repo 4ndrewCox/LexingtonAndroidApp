@@ -68,7 +68,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.capstone.Lexington.MainActivity" />
+        </activity>
+         <activity
+            android:name="com.capstone.Lexington.IndivImageActivity"
+            android:label="@string/individual_image"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.capstone.Lexington.MainActivity" />
         </activity>-->
+        
     </application>
 
 </manifest>

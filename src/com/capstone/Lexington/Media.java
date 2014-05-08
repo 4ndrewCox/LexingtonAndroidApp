@@ -45,7 +45,7 @@ public class Media
     return this.path;
   }
 
-  public int getQr()
+  public int getQR()
   {
     return this.qr_code;
   }
@@ -75,7 +75,7 @@ public class Media
     this.path = paramString;
   }
 
-  public void setQr(int paramInt)
+  public void setQR(int paramInt)
   {
     this.qr_code = paramInt;
   }

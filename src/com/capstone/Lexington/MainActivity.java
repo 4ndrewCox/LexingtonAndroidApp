@@ -1,6 +1,7 @@
 package com.capstone.Lexington;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -37,7 +38,6 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         //get the pager, action bar and adapters
         mPager = (ViewPager) findViewById(R.id.pager); // pulls from activity_main
         mActionBar = getActionBar();
-        mAdapter = new TabPagerAdapter(getSupportFragmentManager());
         
        String scanResult = new String(); 
        Intent scanner = getIntent();
@@ -60,6 +60,12 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
        }
        
        Exhibit currentExhibit = new Exhibit(myDB.getExhibit());
+       ArrayList<Media> textList = myDB.getMedia(1);
+       ArrayList<Media> audioList = myDB.getMedia(2);
+       ArrayList<Media> videoList = myDB.getMedia(3);
+       ArrayList<Media> imageList = myDB.getMedia(4);
+       
+       mAdapter = new TabPagerAdapter(getSupportFragmentManager(), textList, audioList, videoList, imageList);
        
        previewDescription.setText(currentExhibit.name);
        

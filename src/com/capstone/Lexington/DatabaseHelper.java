@@ -179,12 +179,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 	
 	// get exhibit contents
-	public ArrayList<Media> getMedia(int paramInt) {
+	public ArrayList<Media> getMedia(int mediaType) {
 		
 		// get results of database query
 		Cursor localCursor = sdb.rawQuery(
 				"SELECT * FROM obj_media WHERE qr_code = " + this.query
-						+ " AND media_type = " + paramInt, null);
+						+ " AND media_type = " + mediaType, null);
 		
 		// holds exhibit data in media structure
 		ArrayList<Media> a = new ArrayList<Media>();
@@ -207,7 +207,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 			localMedia.setName(localCursor.getString(2));
 			localMedia.setPath(localCursor.getString(3));
 			localMedia.setDesc(localCursor.getString(4));
-			localMedia.setQr(localCursor.getInt(5));
+			localMedia.setQR(localCursor.getInt(5));
 			a.add(localMedia);
 		}
 	}

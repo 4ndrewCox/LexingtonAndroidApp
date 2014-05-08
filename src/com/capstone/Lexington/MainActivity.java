@@ -3,6 +3,8 @@ package com.capstone.Lexington;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.capstone.Lexington.InfoFragment.TextFragmentCallBack;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
@@ -17,7 +19,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener{
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener, TextFragmentCallBack {
 
     //Declare necessary class members
     private ViewPager mPager; //Changes the views with swipes
@@ -177,5 +179,15 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     {
 
     }
+
+
+   @Override
+   public void getSelectedRow(String name, String desc) {
+
+	   Intent openTextRow = new Intent(this, TextRowActivity.class);
+	   openTextRow.putExtra("name", name);
+	   openTextRow.putExtra("desc", desc);
+	   startActivity(openTextRow);
+   }
 
 }

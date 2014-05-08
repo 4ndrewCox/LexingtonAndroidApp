@@ -68,7 +68,31 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.capstone.Lexington.MainActivity" />
-        </activity>-->
+        </activity>
+        <activity
+            android:name="com.capstone.Lexington.TextRowActivity"
+            android:label="@string/text_row_activity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.capstone.Lexington.MainActivity" />
+        </activity>
+         <activity
+            android:name="com.capstone.Lexington.AudioRowActivity"
+            android:label="@string/audio_row_activity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.capstone.Lexington.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.capstone.Lexington.VideoRowActivity"
+            android:label="@string/video_row_activity"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.capstone.Lexington.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

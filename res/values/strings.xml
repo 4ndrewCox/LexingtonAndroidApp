@@ -12,4 +12,6 @@
 	<string name="title_activity_help">Help</string>
 	<string name="individual_image">Images</string>
 	<string name="text_row_activity">Text</string>
+	<string name="audio_row_activity">Audio</string>
+	<string name="video_row_activity">Video</string>
 </resources>

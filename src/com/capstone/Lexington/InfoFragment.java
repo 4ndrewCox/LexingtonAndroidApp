@@ -29,9 +29,8 @@ public class InfoFragment extends Fragment {
 	TextFragmentCallBack mCallBack;
 	
 	public interface TextFragmentCallBack {
-		public void getSelectedRow(String name, String desc);
+		public void getSelectedTextRow(String name, String desc);
 	}
-	
 	
 	@Override
 	public void onAttach(Activity activity)
@@ -80,7 +79,7 @@ public class InfoFragment extends Fragment {
 				public void onClick(View v) {
 					
 					int index = (Integer)v.getTag();
-					mCallBack.getSelectedRow(names.get(index), desc.get(index));
+					mCallBack.getSelectedTextRow(names.get(index), desc.get(index));
 				}
     		});
     		

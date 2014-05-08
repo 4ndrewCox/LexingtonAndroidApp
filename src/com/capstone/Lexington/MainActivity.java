@@ -3,7 +3,9 @@ package com.capstone.Lexington;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.capstone.Lexington.AudioFragment.AudioFragmentCallBack;
 import com.capstone.Lexington.InfoFragment.TextFragmentCallBack;
+import com.capstone.Lexington.VideoFragment.VideoFragmentCallBack;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
@@ -19,7 +21,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends FragmentActivity implements ActionBar.TabListener, TextFragmentCallBack {
+public class MainActivity extends FragmentActivity implements ActionBar.TabListener, TextFragmentCallBack, AudioFragmentCallBack, VideoFragmentCallBack {
 
     //Declare necessary class members
     private ViewPager mPager; //Changes the views with swipes
@@ -182,7 +184,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 
 
    @Override
-   public void getSelectedRow(String name, String desc) {
+   public void getSelectedTextRow(String name, String desc) {
 
 	   Intent openTextRow = new Intent(this, TextRowActivity.class);
 	   openTextRow.putExtra("name", name);
@@ -190,4 +192,25 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
 	   startActivity(openTextRow);
    }
 
+	@Override
+	public void getSelectedAudioRow(String name, String desc, String file) {
+		
+		Intent openAudioRow = new Intent(this, AudioRowActivity.class);
+		openAudioRow.putExtra("name", name);
+		openAudioRow.putExtra("desc", desc);
+		openAudioRow.putExtra("file", file);
+		startActivity(openAudioRow);
+		
+	}
+
+	@Override
+	public void getSelectedVideoRow(String name, String desc, String file) {
+
+		Intent openVideoRow = new Intent(this, VideoRowActivity.class);
+		openVideoRow.putExtra("name", name);
+		openVideoRow.putExtra("desc", desc);
+		openVideoRow.putExtra("file", file);
+		startActivity(openVideoRow);
+
+	}
 }

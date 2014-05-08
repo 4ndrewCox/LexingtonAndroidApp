@@ -10,5 +10,5 @@
 	<string name="title_activity_about">About</string>
 	<string name="title_activity_map">Map</string>
 	<string name="title_activity_help">Help</string>
-	
+	<string name="individual_image">individual image from gallery</string>
 </resources>

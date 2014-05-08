@@ -29,7 +29,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Test Cell"
-                    android:id="@+id/textView"
+                    android:id="@+id/indivImageText"
                     android:textSize="20dp"
                     android:gravity="center" />
             </TableRow>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/galleryLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+	
+    <LinearLayout 
+        android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+		
+        <ImageView
+            android:id="@+id/indivImageView"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/a4_skyhawk"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/indivImageText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Double Tap to Zoom" />
+
+        <ScrollView
+            android:id="@+id/scrollView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="10dp" >
+
+            <TextView
+                android:id="@+id/indivImageText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Enter exhibit text here" />
+        </ScrollView>
+    </LinearLayout>
+    
+     <ImageView
+         android:id="@+id/expandedImage"
+         android:layout_width="fill_parent"
+         android:layout_height="fill_parent"
+         android:src="@drawable/a4_skyhawk"
+         android:visibility="invisible" />
+
+</LinearLayout>

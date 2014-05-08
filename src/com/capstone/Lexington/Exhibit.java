@@ -23,6 +23,16 @@ public class Exhibit
     this.loc_y = paramDouble2;
     this.floor = paramInt;
   }
+  
+  public Exhibit(Exhibit old)
+  {
+	    this.name = old.name;
+	    this.loc_x = old.loc_x;
+	    this.loc_y = old.loc_y;
+	    this.floor = old.floor;
+	    this.qr_code = old.qr_code;
+	    this.thumb = old.thumb;
+  }
 
   public int getFloor()
   {
@@ -34,7 +44,7 @@ public class Exhibit
     return this.name;
   }
 
-  public int getQr()
+  public int getQR()
   {
     return this.qr_code;
   }
@@ -64,7 +74,7 @@ public class Exhibit
     this.name = paramString;
   }
 
-  public void setQr(int paramInt)
+  public void setQR(int paramInt)
   {
     this.qr_code = paramInt;
   }

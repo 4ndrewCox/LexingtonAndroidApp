@@ -1,9 +1,12 @@
 package com.capstone.Lexington;
 
+import java.io.IOException;
+
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.FragmentTransaction;
 import android.content.Intent;
+import android.database.SQLException;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.MenuItemCompat;
@@ -43,9 +46,23 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
        {
     	   Toast.makeText(getApplicationContext(), "no result", Toast.LENGTH_LONG).show();
        }
-       previewDescription.setText(scanResult);
        
-
+       DatabaseHelper myDB = new DatabaseHelper(this, scanResult);
+       try{myDB.createDataBase();}
+       catch(IOException e)
+       {
+    	   throw new Error("Unable to create database!");
+       }
+       try{myDB.openDataBase();}
+       catch(SQLException e)
+       {
+    	   throw e;
+       }
+       
+       Exhibit currentExhibit = new Exhibit(myDB.getExhibit());
+       
+       previewDescription.setText(currentExhibit.name);
+       
         //set the adapter to the pager
         mPager.setAdapter(mAdapter);
 

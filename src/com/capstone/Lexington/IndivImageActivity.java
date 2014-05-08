@@ -66,6 +66,10 @@ public class IndivImageActivity extends Activity {
 	public boolean onTouchEvent(MotionEvent event) {
 		if (!gd.onTouchEvent(event))
 			return super.onTouchEvent(event);
+		else
+		{
+			expandView.setVisibility(View.VISIBLE);
+		}
 		return true;
 	}
 	
@@ -88,7 +92,7 @@ public class IndivImageActivity extends Activity {
 	    // bounds, since that's the origin for the positioning animation
 	    // properties (X, Y).
 	    thumbView.getGlobalVisibleRect(startBounds);
-	    findViewById(R.id.imageView).getGlobalVisibleRect(finalBounds, globalOffset);
+	    findViewById(R.id.galleryLayout).getGlobalVisibleRect(finalBounds, globalOffset);
 	    startBounds.offset(-globalOffset.x, -globalOffset.y);
 	    finalBounds.offset(-globalOffset.x, -globalOffset.y);
 
